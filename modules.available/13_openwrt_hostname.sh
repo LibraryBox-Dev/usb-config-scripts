@@ -29,6 +29,8 @@ func_set_system_config_openwrt_hostname(){
 	ip=$(uci get network.lan.ipaddr)
 
 	uci set "system.@system[0].hostname=$value"
+	uci_commit_needed="1"
+
 	echo "127.0.0.1 $value localhost." >/etc/hosts
 	echo "$ip $value" >>/etc/hosts
 

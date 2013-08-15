@@ -10,7 +10,7 @@
 
 
 #uncommend the following line for REAL modules
-#MODULE_LIST="$MODULE_LIST piratebox_hostname"
+MODULE_LIST="$MODULE_LIST piratebox_hostname"
 
 piratebox_hostname_myself="piratebox_hostname"       #contains the name of the module
 piratebox_hostname_config_file="hostname"
@@ -49,8 +49,8 @@ func_set_system_config_piratebox_hostname(){
 #  see below
 func_compare_and_set_piratebox_hostname(){
 
-        auto_config_lookup_and_set  "$openwrt_ssid_myself" \
-                "$cfg_auto_folder/$openwrt_ssid_config_file" \
-                "$cfg_tmp_folder/$openwrt_ssid_config_file"
+        auto_config_lookup_and_set  "$piratebox_hostname_myself" \
+                "$cfg_auto_folder/$piratebox_hostename_config_file" \
+                "$cfg_tmp_folder/$piratebox_hostename_config_file"
 
 }

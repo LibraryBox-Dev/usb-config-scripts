@@ -28,6 +28,7 @@ func_read_system_config_openwrt_ssid() {
 func_set_system_config_openwrt_ssid(){
 	local value=$1 ; shift
 	uci set "wireless.@wifi-iface[$interface_no].ssid=$value"
+	uci_commit_needed="1"
 }
 
 

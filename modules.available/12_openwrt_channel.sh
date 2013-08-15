@@ -28,6 +28,8 @@ func_read_system_config_openwrt_channel() {
 func_set_system_config_openwrt_channel(){
 	local value=$1 ; shift
 	uci set "wireless.radio0.channel=$value"
+	uci_commit_needed="1"
+
 }
 
 

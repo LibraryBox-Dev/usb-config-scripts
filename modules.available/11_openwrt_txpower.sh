@@ -28,6 +28,7 @@ func_read_system_config_openwrt_txpower() {
 func_set_system_config_openwrt_txpower(){
 	local value=$1 ; shift
 	uci set "wireless.radio0.txpower=$value"
+	uci_commit_needed="1"
 }
 
 
