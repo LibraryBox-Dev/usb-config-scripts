@@ -13,7 +13,7 @@
 MODULE_LIST="$MODULE_LIST librarybox_ftpadmin"
 
 librarybox_ftpadmin_myself="librarybox_ftpadmin"       #contains the name of the module
-librarybox_ftpadmin_config_file="librarybox_ftpadmin"
+librarybox_ftpadmin_config_file="librarybox_ftpadmin.txt"
 
 # FTP configuration is currently located in the hook
 #librarybox_config=/opt/piratebox/conf/piratebox.conf

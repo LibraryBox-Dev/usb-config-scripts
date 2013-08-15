@@ -13,7 +13,7 @@
 MODULE_LIST="$MODULE_LIST librarybox_ftp"
 
 librarybox_ftp_myself="librarybox_ftp"       #contains the name of the module
-librarybox_ftp_config_file="librarybox_ftp"
+librarybox_ftp_config_file="librarybox_ftp.txt"
 
 # FTP configuration is currently located in the hook
 #librarybox_config=/opt/piratebox/conf/piratebox.conf

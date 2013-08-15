@@ -5,6 +5,6 @@
 . ../cfg/auto.config.sh
 . ../lib/autoconfig.sh
 
-DEBUG=1
+DEBUG=false
 
 _start_

@@ -9,9 +9,9 @@ auto_config_lookup_and_set(){
     local filename=$1; shift
     local current_status_file=$1; shift
 
-    [ $DEBUG ] && echo "lookup_set: config              - $config"
-    [ $DEBUG ] && echo "lookup_set: filename            - $filename"
-    [ $DEBUG ] && echo "lookup_set: current_status_file - $current_status_file"
+     $DEBUG && echo "lookup_set: config              - $config"
+     $DEBUG && echo "lookup_set: filename            - $filename"
+     $DEBUG && echo "lookup_set: current_status_file - $current_status_file"
 
     if [ -f $filename ] ; then
         if [ "`cat $filename`"  != "`cat $current_status_file`" ] ; then
@@ -57,8 +57,8 @@ _load_modules_() {
 
 	local available_module_files=$(ls $cfg_modules)
 
-	[ $DEBUG ] && echo "modules_folder $cfg_modules "
-	[ $DEBUG ] && echo "ls result: $available_module_files"
+	 $DEBUG  && echo "modules_folder $cfg_modules "
+	 $DEBUG  && echo "ls result: $available_module_files"
 
 	for module in $available_module_files
 	do
@@ -67,7 +67,7 @@ _load_modules_() {
 		echo "done"
 	done
 
-	[ $DEBUG ] && echo "Available modules: $MODULE_LIST "
+	echo "Available modules: $MODULE_LIST "
 
 	return 0
 }
@@ -97,7 +97,3 @@ _start_() {
 	cp $cfg_tmp_folder/* $cfg_auto_folder
 }
 
-uci() {
-
-	echo $*
-}

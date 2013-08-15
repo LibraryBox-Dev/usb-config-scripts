@@ -13,7 +13,7 @@
 MODULE_LIST="$MODULE_LIST piratebox_hostname"
 
 piratebox_hostname_myself="piratebox_hostname"       #contains the name of the module
-piratebox_hostname_config_file="hostname"
+piratebox_hostname_config_file="hostname.txt"
 
 piratebox_config=/opt/piratebox/conf/piratebox.conf
 piratebox_install_sh=/opt/piratebox/bin/install_piratebox.sh
