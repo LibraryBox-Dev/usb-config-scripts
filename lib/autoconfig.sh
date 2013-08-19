@@ -14,6 +14,11 @@ auto_config_lookup_and_set(){
      $DEBUG && echo "lookup_set: current_status_file - $current_status_file"
 
     if [ -f $filename ] ; then
+
+	$DEBUG && echo "Config file found"
+	$DEBUG && echo -n "   tmp (current): " && cat $current_status_file
+	$DEBUG && echo -n "   config : " &&  cat $filename
+
         if [ "`cat $filename`"  != "`cat $current_status_file`" ] ; then
                 echo " $config - configuration is different, setting to new value"
                 func_set_system_config_$config "`cat $filename `"  "`cat $current_status_file`" 

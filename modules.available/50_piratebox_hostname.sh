@@ -23,7 +23,7 @@ piratebox_install_sh=/opt/piratebox/bin/install_piratebox.sh
 func_read_system_config_piratebox_hostname() {
 	local path=$1 ; shift
 
-	echo "Extracting HOST parameter from piratebox.conf"
+	echo "Extracting HOST parameter from $piratebox_config"
 	config_line=$(grep HOST=\" $piratebox_config )
 	#extract value
 	config_line=${config_line#HOST=\"}
@@ -39,7 +39,7 @@ func_set_system_config_piratebox_hostname(){
 	local old_value=$1; shift
 
 	echo "Changing hostname for PirateBox with install_piratebox.sh"
-	$piratebox_install_sh "$piratebox_config" hostname "$1"
+ 	. $piratebox_install_sh "$piratebox_config" hostname "$value"
 }
 
 
@@ -50,7 +50,7 @@ func_set_system_config_piratebox_hostname(){
 func_compare_and_set_piratebox_hostname(){
 
         auto_config_lookup_and_set  "$piratebox_hostname_myself" \
-                "$cfg_auto_folder/$piratebox_hostename_config_file" \
-                "$cfg_tmp_folder/$piratebox_hostename_config_file"
+                "$cfg_auto_folder/$piratebox_hostname_config_file" \
+                "$cfg_tmp_folder/$piratebox_hostname_config_file"
 
 }

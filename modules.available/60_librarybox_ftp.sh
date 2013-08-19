@@ -17,15 +17,16 @@ librarybox_ftp_config_file="librarybox_ftp.txt"
 
 # FTP configuration is currently located in the hook
 #librarybox_config=/opt/piratebox/conf/piratebox.conf
-piratebox_config=/opt/piratebox/conf/hook_custom.conf
+### duplicate variable name with different content
+librarybox_ftp_piratebox_config=/opt/piratebox/conf/hook_custom.conf
 
 # Read configuration out of the system and save it to librarybox_ftp_system_config depending on the 
 #   parameter
 func_read_system_config_librarybox_ftp() {
 	local path=$1 ; shift
 
-	echo "Extracting FTP parameter from $piratebox_config"
-	config_line=$(grep FTP_ENABLED=\" $piratebox_config )
+	echo "Extracting FTP parameter from $librarybox_ftp_piratebox_config"
+	config_line=$(grep FTP_ENABLED=\" $librarybox_ftp_piratebox_config )
 	#extract value
 	config_line=${config_line#FTP_ENABLED=\"}
 	config_value=${config_line%\"}
@@ -40,7 +41,7 @@ func_set_system_config_librarybox_ftp(){
 	local old_value=$1; shift
 
 	echo "Changing ftp for LibraryBox"
-	sed "s|FTP_ENABLED=\"$old_value\"|FTP_ENABLED=\"$value\"|" -i $piratebox_config
+	sed "s|FTP_ENABLED=\"$old_value\"|FTP_ENABLED=\"$value\"|" -i $librarybox_ftp_piratebox_config
 
 }
 
