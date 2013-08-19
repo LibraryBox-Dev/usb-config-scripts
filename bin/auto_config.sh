@@ -2,8 +2,8 @@
 
 ## Initiates the autoconfig and lateron a restart
 
-. ../cfg/auto.config.sh
-. ../lib/autoconfig.sh
+. /opt/autocfg/conf/auto.config.sh
+. /opt/autocfg/lib/autoconfig.sh
 
 DEBUG=false
 
