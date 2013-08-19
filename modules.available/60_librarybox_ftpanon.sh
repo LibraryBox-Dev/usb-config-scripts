@@ -25,7 +25,7 @@ func_read_system_config_librarybox_ftpanon() {
 	local path=$1 ; shift
 
 	echo "Extracting FTP-Anon parameter from $ftp_config"
-	config_line=$(grep ENABLE_SYNC=\" $ftp_config )
+	config_line=$(grep ENABLE_ANON=\" $ftp_config )
 	#extract value
 	config_line=${config_line#ENABLE_ANON=\"}
 	config_value=${config_line%\"}
