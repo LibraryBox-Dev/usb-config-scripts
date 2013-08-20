@@ -1,0 +1,59 @@
+#!/bin/sh
+#
+#   AutoConfiguration via USB file
+#
+#      Enable, Disable ftp for librarybox configuration
+#
+# Available global variables
+#     CONFIG_TMP_STORE
+#     CONFIG_STORE
+
+
+#uncommend the following line for REAL modules
+MODULE_LIST="$MODULE_LIST librarybox_shoutbox"
+
+librarybox_shoutbox_myself="librarybox_shoutbox"       #contains the name of the module
+librarybox_shoutbox_config_file="librarybox_shoutbox.txt"
+
+# FTP configuration is currently located in the hook
+#librarybox_config=/opt/piratebox/conf/piratebox.conf
+### duplicate variable name with different content
+librarybox_shoutbox_piratebox_config=/opt/piratebox/conf/hook_custom.conf
+
+# Read configuration out of the system and save it to librarybox_shoutbox_system_config depending on the 
+#   parameter
+func_read_system_config_librarybox_shoutbox() {
+	local path=$1 ; shift
+
+	echo "Extracting SHOUTBOX parameter from $librarybox_shoutbox_piratebox_config"
+	config_line=$(grep SHOUTBOX_ENABLED=\" $librarybox_shoutbox_piratebox_config )
+	#extract value
+	config_line=${config_line#SHOUTBOX_ENABLED=\"}
+	config_value=${config_line%\"}
+
+	echo $config_value  >  $path/$librarybox_shoutbox_config_file
+}
+
+# Parse the first parameter with the changed value
+#  do the stuff you need to do for changing the configuratioj
+func_set_system_config_librarybox_ftp(){
+	local value=$1 ; shift
+	local old_value=$1; shift
+
+	echo "Changing Shoutbox-function for LibraryBox"
+	sed "s|SHOUTBOX_ENABLED=\"$old_value\"|SHOUTBOX_ENABLED=\"$value\"|" -i $librarybox_shoutbox_piratebox_config
+
+}
+
+
+#This function is called to compare content and et differences
+#  to initiate a restart in the end, set "changed=1"
+#  the easiest comparison can be used with auto_default_compare
+#  see below
+func_compare_and_set_librarybox_ftp(){
+
+        auto_config_lookup_and_set  "$librarybox_shoutbox_myself" \
+                "$cfg_auto_folder/$librarybox_shoutbox_config_file" \
+                "$cfg_tmp_folder/$librarybox_shoutbox_config_file"
+
+}
