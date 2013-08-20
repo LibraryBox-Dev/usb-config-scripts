@@ -80,6 +80,7 @@ _load_modules_() {
 
 _start_() {
 
+	changed=0
 
 	# check if $cfg_modules is available
 	if [ ! -d $cfg_modules ] ; then
@@ -100,5 +101,16 @@ _start_() {
 
 	# Transfer exported config values
 	cp $cfg_tmp_folder/* $cfg_auto_folder
-}
+
+	
+	if [ "$changed" == "1" ] ; then
+		#If we changed something we deliver 0 as RC, because
+		#we did our work successfully
+		exit 0
+	else
+		#So, we haven't changed something, so, we inform with 
+		#RC 1 as a hint
+		exit 1
+	fi
+}	
 
