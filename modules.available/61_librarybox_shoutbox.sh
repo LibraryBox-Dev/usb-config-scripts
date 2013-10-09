@@ -50,7 +50,7 @@ func_set_system_config_librarybox_shoutbox(){
 #  to initiate a restart in the end, set "changed=1"
 #  the easiest comparison can be used with auto_default_compare
 #  see below
-func_compare_and_set_librarybox_ftp(){
+func_compare_and_set_librarybox_shoutbox(){
 
         auto_config_lookup_and_set  "$librarybox_shoutbox_myself" \
                 "$cfg_auto_folder/$librarybox_shoutbox_config_file" \
