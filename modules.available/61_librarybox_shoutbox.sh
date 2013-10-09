@@ -36,7 +36,7 @@ func_read_system_config_librarybox_shoutbox() {
 
 # Parse the first parameter with the changed value
 #  do the stuff you need to do for changing the configuratioj
-func_set_system_config_librarybox_ftp(){
+func_set_system_config_librarybox_shoutbox(){
 	local value=$1 ; shift
 	local old_value=$1; shift
 
