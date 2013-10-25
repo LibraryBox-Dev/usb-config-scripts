@@ -10,7 +10,7 @@
 MODULE_LIST="$MODULE_LIST openwrt_hostname"
 
 openwrt_hostname_myself="openwrt_hostname"       #contains the name of the module
-openwrt_hostname_config_file="hostname.txt"
+openwrt_hostname_config_file="system_hostname.txt"
 
 # Read configuration out of the system and save it to openwrt_hostname_system_config depending on the 
 #   parameter

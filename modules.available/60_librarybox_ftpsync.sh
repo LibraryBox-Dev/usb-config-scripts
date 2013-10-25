@@ -17,7 +17,7 @@ librarybox_ftpsync_config_file="librarybox_ftpsync.txt"
 
 # FTP configuration is currently located in the hook
 #librarybox_config=/opt/piratebox/conf/piratebox.conf
-ftp_config=/opt/piratebox/conf/ftp/ftp.conf
+ftp_config=/opt/piratebox/conf/hook_custom.conf
 
 # Read configuration out of the system and save it to librarybox_ftpsync_system_config depending on the 
 #   parameter
@@ -25,9 +25,9 @@ func_read_system_config_librarybox_ftpsync() {
 	local path=$1 ; shift
 
 	echo "Extracting FTP-Sync parameter from $ftp_config"
-	config_line=$(grep ENABLE_SYNC=\" $ftp_config )
+	config_line=$(grep FTP_SYNC_ENABLED=\" $ftp_config )
 	#extract value
-	config_line=${config_line#ENABLE_SYNC=\"}
+	config_line=${config_line#FTP_SYNC_ENABLED=\"}
 	config_value=${config_line%\"}
 
 	echo $config_value  >  $path/$librarybox_ftpsync_config_file
@@ -40,7 +40,7 @@ func_set_system_config_librarybox_ftpsync(){
 	local old_value=$1; shift
 
 	echo "Changing ftp-sync access for LibraryBox"
-	sed "s|ENABLE_SYNC=\"$old_value\"|ENABLE_SYNC=\"$value\"|" -i $ftp_config
+	sed "s|FTP_SYNC_ENABLED=\"$old_value\"|FTP_SYNC_ENABLED=\"$value\"|" -i $ftp_config
 
 }
 
