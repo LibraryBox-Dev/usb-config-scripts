@@ -41,7 +41,7 @@ func_set_system_config_openwrt_node_ip(){
 	echo "Changing PirateBox node ipv6 ip in OpenWRT ..."
 	
         local mask_config=$(grep NODE_IPV6_MASK=\' $node_config )
-        local mask_config=${ḿask_config#NODE_IPV6_MASK=\'}
+        local mask_config=${mask_config#NODE_IPV6_MASK=\'}
         local mask_config=${mask_config%\'}
 
         local new_ip="$value""$mask_config"
