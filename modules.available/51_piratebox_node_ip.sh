@@ -24,7 +24,7 @@ func_read_system_config_piratebox_node_ip() {
 	local path=$1 ; shift
 
 	echo "Extracting Node-IPv6 IP parameter from $node_config"
-	config_line=$(grep NODE_IPV6_IP=\" $node_config )
+	config_line=$(grep NODE_IPV6_IP=\' $node_config )
 	#extract value
 	config_line=${config_line#NODE_IPV6_IP=\'}
 	config_value=${config_line%\'}
