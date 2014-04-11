@@ -28,8 +28,8 @@ func_read_system_config_openwrt_ssid() {
 func_set_system_config_openwrt_ssid(){
 	local value=$1 ; shift
 	#Wifi-SSID can only be a maximum of 32 chars
-	local cleaned=`echo $1 | cut -b 1-32 | head -n 1 `
-	uci set "wireless.@wifi-iface[$interface_no].ssid=$value"
+	local cleaned=`echo $value | cut -b 1-32 | head -n 1 `
+	uci set "wireless.@wifi-iface[$interface_no].ssid=$cleaned"
 	uci_commit_needed="1"
 }
 
